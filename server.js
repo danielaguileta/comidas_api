@@ -7,11 +7,11 @@ const app = express()
 
 app.set('port', process.env.PORT || 9000)
 const dbOptions = {
-    host: process.env.DB_HOST || "localhost",
-    port: process.env.DB_PORT || "3306",
-    user: process.env.DB_USER || "root",
-    database: process.env.DB_NAME || "oficial_noysita",
-    password: process.env.DB_PASSWORD || "",
+    host: 'localhost',
+    port: 3308,
+    user: 'root',
+    password: '',
+    database: 'noysita_oficial'
 }
 
 // Middlewares
@@ -26,10 +26,8 @@ app.use(require('./rutas/inventarios'))
 app.use(require('./rutas/cai'))
 app.use(require('./rutas/facturas'))
 app.use(require('./rutas/platillos'))
-
-
-
-
+app.use(require('./rutas/rol'))
+app.use(require('./rutas/bitacora'))
  // Server running
 app.listen(app.get('port'), () =>{
     console.log('Server running on port',app.get('port'))
